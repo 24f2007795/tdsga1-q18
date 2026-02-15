@@ -16,6 +16,11 @@ def simple_similarity(query, text):
     text_words = set(text.lower().split())
     return len(query_words & text_words) / (len(query_words) + 1)
 
+@app.get("/ping")
+async def ping():
+    return {"message": "working"}
+
+
 @app.post("/")
 async def search(body: dict):
     start = time.time()
